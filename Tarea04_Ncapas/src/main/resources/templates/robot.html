@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="src/main/resources/static/style/main.css"  th:href = "@{/style/main.css}" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<nav class="navbar navbar-dark bg-dark">
+  		<span class="navbar-brand mb-0 h1">Seguridad!</span>
+	</nav>
+	<br>
+	
+	<div class="container">
+		<div class="alert alert-warning" role="alert">
+ 			<form th:action="@{/seguridad}" th:object="${robot}" method="post" class="main-form">
+				<div class="security" >
+					<span th:errors="*{soyRobot}" ></span><br>
+					<br> 
+					<h1>
+						<label>No soy un robot</label>
+						<input type="checkbox" th:field="*{soyRobot}" th:value="${false}">
+					</h1>
+					
+				</div>
+			
+				<input type="submit" value="Aceptar" class="btn btn-light"><br>
+				<br><a href="/producto"><input type="button" value="Resgresar" class="btn btn-light"></a>
+			</form>
+ 		</div>
+	</div>	
+	
+	
+
+</body>
+</html>
